@@ -1,0 +1,37 @@
+var
+  i, j: Integer;
+begin
+
+  for i := 1 to 8 do
+  begin
+    for j := 1 to 8 do
+      Write(arr[i, j]:4);
+    Writeln;
+  end;
+end;
+
+procedure PrintResult(const resultArr: TSingleMaxArray);
+var
+  i: Integer;
+begin
+
+  Write('Одномерный массив: ');
+  for i := 1 to 8 do
+    Write(resultArr[i]:4);
+  Writeln;
+end;
+
+var
+  myArray: TArray;
+  singleMaxArray: TSingleMaxArray;
+
+begin
+  Randomize; 
+  GenerateArray(myArray);
+  
+  Writeln('Исходный массив:');
+  PrintArray(myArray);
+  
+  singleMaxArray := GetSingleMaxArray(myArray);
+  PrintResult(singleMaxArray);
+end.
